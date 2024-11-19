@@ -1,5 +1,5 @@
-# Simple Form Application
-This is a basic web application built with Express, EJS, and Express Validator. It includes a simple form to collect user information with server-side validation and displays the submitted data dynamically.
+# Form Validation
+This is a basic web application built with Express, EJS, and Express Validator. It includes forms to create or update as well as delete user information with server-side validation and displays the submitted data dynamically. User can search users through search form that displays users based on query.
 
 ## Features
 - Form Fields:  
