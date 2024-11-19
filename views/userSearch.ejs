@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/search" method="GET">
+      <label for="search">Search Users:</label>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Search by first name or last name"
+        value="<%= search %>"
+      />
+      <button type="submit">Search</button>
+      <a href="/">Back to home</a>
+    </form>
+    <div class="container">
+      <div class="post-container">
+        <% if (search) {%>
+        <h2><%= resultTitle %></h2>
+        <ul>
+          <% if (users.length > 0) {%> <% users.forEach(user => { %>
+
+          <li>
+            <div class="post-info">
+              <div>ID: <%= user.id %></div>
+              <div>Name: <%= user.firstName %> <%= user.lastName%></div>
+              <div>Email: <%= user.email %></div>
+              <div>Age: <%= user.age %></div>
+              <div>Bio: <%=user.bio %></div>
+            </div>
+          </li>
+          <% }); %> <% } else { %>
+          <p>No users found matching your search.</p>
+          <% } %> <% } else { %>
+          <p>Enter a search query to find users.</p>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

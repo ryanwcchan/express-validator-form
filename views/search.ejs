@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1>Search results</h1>
+    <div>
+      <% if (users) {%> <% users.forEach(user => { %>
+      <li>
+        <div class="post-info">
+          <div>ID: <%= user.id %></div>
+          <div>Name: <%= user.firstName %> <%= user.lastName%></div>
+          <div>Email: <%= user.email %></div>
+          <div>Age: <%= user.age %></div>
+          <div>Bio: <%=user.bio %></div>
+        </div>
+      </li>
+      <% }); %> <% } %>
+    </div>
+  </body>
+</html>
