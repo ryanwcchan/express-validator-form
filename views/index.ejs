@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1>Express Validator</h1>
+    <div class="container">
+      <div class="post-container">
+        <div class="post-header">
+          <h1><%= title %></h1>
+          <a href="/create">Create a user</a>
+        </div>
+        <ul>
+          <% if (locals.users) {%> <% users.forEach(user => { %>
+          <li>
+            <div class="post-info">
+              <div>ID: <%= user.id %></div>
+              <div>Name: <%= user.firstName %> <%= user.lastName%></div>
+              <div>Email: <%= user.email %></div>
+              <div>Age: <%= user.age %></div>
+              <div>Bio: <%=user.bio %></div>
+            </div>
+            <a href="/<%= user.id %>/update">Update</a>
+            <form
+              action="/<%= user.id %>/delete"
+              method="POST"
+              style="display: inline"
+            >
+              <button
+                type="submit"
+                onclick="return confirm('Are you sure you want to delete this user?');"
+              >
+                Delete
+              </button>
+            </form>
+          </li>
+          <% }); %> <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
